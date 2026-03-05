@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
-import ThreeBackground from './three/ThreeBackground';
+import ArcadeBackground from './components/ArcadeBackground';
+import Landing from './pages/Landing';
 import LevelMap from './pages/LevelMap';
 import Level1Intro from './pages/Level1Intro';
 import GuessComponent from './pages/GuessComponent';
@@ -65,17 +66,18 @@ function SocketHandler({ children }) {
 function App() {
   return (
     <Router>
-      <div className="relative w-full h-screen overflow-hidden bg-cyber-dark text-white">
-        {/* Persistent 3D Background */}
+      <div className="relative w-full h-screen overflow-hidden bg-arcade-dark text-white">
+        {/* Persistent 2D Retro Background */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <ThreeBackground />
+          <ArcadeBackground />
         </div>
 
         {/* Foreground Content */}
         <div className="relative z-10 w-full h-full">
           <SocketHandler>
             <Routes>
-              <Route path="/" element={<LevelMap />} />
+              <Route path="/" element={<Landing />} />
+              <Route path="/map" element={<LevelMap />} />
               <Route path="/intro" element={<Level1Intro />} />
               <Route path="/level1/guess" element={<GuessComponent />} />
               <Route path="/level1/riddle" element={<IoTRiddle />} />

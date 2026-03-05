@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,51 +6,64 @@
 
 @layer base {
   body {
-    @apply bg-cyber-dark text-white font-inter overflow-x-hidden;
+    @apply bg-arcade-dark text-white font-press overflow-x-hidden;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-orbitron tracking-wider;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-press tracking-wider;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
   }
 }
 
 @layer components {
-  /* Common UI Elements */
+
+  /* Arcade UI Elements */
+  .arcade-panel {
+    @apply bg-arcade-dark border-[4px] border-arcade-pink rounded-md shadow-[8px_8px_0_rgba(255, 46, 136, 0.3)] relative z-10;
+  }
+
+  /* Fallback for components holding the old class name */
   .glass-panel {
-    @apply bg-cyber-dark/60 backdrop-blur-md border border-white/10 rounded-xl shadow-[0_0_15px_rgba(0,229,255,0.1)];
+    @apply bg-arcade-dark border-[4px] border-arcade-pink rounded-md shadow-[8px_8px_0_rgba(255, 46, 136, 0.5)] relative z-10;
   }
+
   .neon-border {
-    @apply border border-cyber-primary shadow-[0_0_10px_rgba(0,229,255,0.5)];
+    @apply border-[4px] border-arcade-cyan shadow-[0_0_10px_rgba(0, 240, 255, 0.8), inset_0_0_10px_rgba(0, 240, 255, 0.4)];
   }
+
   .neon-text {
-    @apply text-cyber-primary drop-shadow-[0_0_8px_rgba(0,229,255,0.8)];
+    @apply text-arcade-cyan drop-shadow-[4px_4px_0_rgba(0, 0, 0, 0.5)];
   }
+
+  .arcade-button {
+    @apply px-6 py-4 bg-arcade-yellow text-arcade-dark font-press text-xs md:text-sm tracking-widest border-[4px] border-white transition-all duration-100 ease-in-out shadow-[0_6px_0_#FFF, 0_10px_20px_rgba(255, 216, 77, 0.4)] hover:bg-white hover:border-arcade-yellow hover:text-arcade-dark hover:shadow-[0_6px_0_#FFD84D, 0_10px_20px_rgba(255, 216, 77, 0.6)] active:translate-y-[6px] active:shadow-[0_0_0_#FFD84D];
+  }
+
+  /* Fallback wrapper for old neon-button usage */
   .neon-button {
-    @apply relative px-8 py-3 bg-cyber-dark text-cyber-primary font-orbitron font-bold uppercase tracking-widest border border-cyber-primary
-           hover:bg-cyber-primary/10 hover:shadow-[0_0_20px_rgba(0,229,255,0.6),inset_0_0_10px_rgba(0,229,255,0.4)]
-           transition-all duration-300 ease-in-out rounded-sm overflow-hidden 
-           active:scale-95;
-  }
-  .neon-button::before {
-    content: '';
-    @apply absolute top-0 left-[-100%] w-full h-[2px] bg-gradient-to-r from-transparent to-cyber-primary transition-all duration-500 z-10;
-  }
-  .neon-button:hover::before {
-    @apply left-[100%];
+    @apply px-6 py-4 bg-arcade-yellow text-arcade-dark font-press text-xs md:text-sm tracking-widest border-[4px] border-white transition-all duration-100 ease-in-out shadow-[0_6px_0_#FFF, 0_10px_20px_rgba(255, 216, 77, 0.4)] hover:bg-white hover:border-arcade-yellow hover:text-arcade-dark hover:shadow-[0_6px_0_#FFD84D, 0_10px_20px_rgba(255, 216, 77, 0.6)] active:translate-y-[6px] active:shadow-[0_0_0_#FFD84D];
   }
 }
 
-/* Custom scrollbar for cyber look */
+/* Custom scrollbar for arcade look */
 ::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  @apply bg-cyber-dark;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-cyber-primary/50 hover:bg-cyber-primary rounded-full;
+  width: 12px;
 }
 
-/* Silhouette generation util for the guess component */
+::-webkit-scrollbar-track {
+  @apply bg-arcade-dark border-l-[4px] border-arcade-pink;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-arcade-pink border-[2px] border-arcade-dark;
+}
+
+/* Pixel Silhouette for "Guess The Component" */
 .silhouette {
-  filter: brightness(0) drop-shadow(0 0 5px rgba(0, 229, 255, 0.5));
+  filter: brightness(0) drop-shadow(4px 4px 0 rgba(0, 240, 255, 0.5));
 }

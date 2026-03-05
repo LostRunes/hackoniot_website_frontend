@@ -1,28 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function HologramCard({ children, className = '', glowColor = '#00E5FF', onClick, whileHover = { scale: 1.05 } }) {
+export default function HologramCard({ children, className = '', glowColor = '#FF2E88', onClick, whileHover = { y: -5 } }) {
     return (
         <motion.div
             whileHover={whileHover}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.98, y: 0 }}
             onClick={onClick}
-            className={`relative glass-panel rounded-xl border p-6 cursor-pointer overflow-hidden group ${className}`}
+            className={`relative bg-arcade-dark border-[4px] p-6 cursor-pointer group transition-all duration-100 ${className}`}
             style={{
                 borderColor: glowColor,
-                boxShadow: `0 0 15px ${glowColor}40`
+                boxShadow: `8px 8px 0 ${glowColor}60`
             }}
         >
             <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"
-                style={{ background: `linear-gradient(45deg, transparent, ${glowColor}, transparent)` }}
+                className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-100 pointer-events-none"
+                style={{ backgroundColor: glowColor }}
             />
-            {/* Subtle grid pattern background */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
-                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
-                backgroundSize: '20px 20px'
-            }} />
-            <div className="relative z-10">
+            {/* Retro Corner Pixels */}
+            <div className="absolute top-1 left-1 w-2 h-2 bg-white/30 pointer-events-none" />
+            <div className="absolute top-1 right-1 w-2 h-2 bg-white/30 pointer-events-none" />
+            <div className="absolute bottom-1 left-1 w-2 h-2 bg-white/30 pointer-events-none" />
+            <div className="absolute bottom-1 right-1 w-2 h-2 bg-white/30 pointer-events-none" />
+
+            <div className="relative z-10 w-full h-full">
                 {children}
             </div>
         </motion.div>

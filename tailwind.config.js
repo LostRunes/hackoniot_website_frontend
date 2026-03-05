@@ -7,16 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        cyber: {
-          dark: '#0A0F1C',
-          primary: '#00E5FF',
-          secondary: '#7A5FFF',
-          accent: '#00FFA3'
+        arcade: {
+          dark: '#2E1F5E',
+          pink: '#FF2E88',
+          blue: '#2CC6FF',
+          yellow: '#FFD84D',
+          cyan: '#00F0FF'
         }
       },
       fontFamily: {
         orbitron: ['Orbitron', 'sans-serif'],
-        inter: ['Inter', 'sans-serif']
+        inter: ['Inter', 'sans-serif'],
+        press: ['"Press Start 2P"', 'cursive']
       },
       animation: {
         'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
