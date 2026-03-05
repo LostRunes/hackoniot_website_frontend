@@ -1,62 +1,167 @@
 [
     {
-        "question": "What is an embedded system?",
+        "id": 1,
+        "question": "What does IoT stand for?",
         "options": [
-            "A general-purpose computer",
-            "A system designed for a specific function",
-            "A cloud server",
-            "A web application"
-        ],
-        "answer": 1
-    },
-    {
-        "question": "Which of the following is a microcontroller?",
-        "options": [
-            "Intel i7",
-            "Raspberry Pi 4",
-            "ATmega328P",
-            "NVIDIA RTX"
-        ],
-        "answer": 2
-    },
-    {
-        "question": "What are the main components inside a microcontroller?",
-        "options": [
-            "CPU, RAM, ROM, I/O",
-            "GPU, SSD, Monitor",
-            "Router, Switch, Modem",
-            "Keyboard, Mouse"
+            "Internet of Things",
+            "Intranet of Technology",
+            "Internal Organ Tracker",
+            "Interconnected Orbits"
         ],
         "answer": 0
     },
     {
-        "question": "Which memory is volatile?",
+        "id": 2,
+        "question": "Which protocol is commonly used for lightweight IoT messaging?",
         "options": [
-            "ROM",
-            "EEPROM",
-            "RAM",
-            "Flash"
+            "HTTP",
+            "MQTT",
+            "FTP",
+            "SMTP"
         ],
-        "answer": 2
+        "answer": 1
     },
     {
-        "question": "What does GPIO stand for?",
+        "id": 3,
+        "question": "What is the brain of an Arduino board?",
         "options": [
-            "General Purpose Input Output",
-            "Global Peripheral IO",
-            "General Peripheral Internal Output",
-            "Graphical Pin Input Output"
+            "Resistor",
+            "Microcontroller",
+            "Capacitor",
+            "Transistor"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 4,
+        "question": "Which sensor is used to measure distance using sound waves?",
+        "options": [
+            "PIR Sensor",
+            "Ultrasonic Sensor",
+            "LDR",
+            "Temperature Sensor"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 5,
+        "question": "What does a PIR sensor detect?",
+        "options": [
+            "Light",
+            "Humidity",
+            "Pressure",
+            "Motion (Infrared)"
+        ],
+        "answer": 3
+    },
+    {
+        "id": 6,
+        "question": "Which component is used to prototype circuits without soldering?",
+        "options": [
+            "Breadboard",
+            "PCB",
+            "Relay",
+            "Jumper Wire"
         ],
         "answer": 0
     },
     {
-        "question": "What is PWM mainly used for?",
+        "id": 7,
+        "question": "What language is primarily used to program an Arduino?",
         "options": [
-            "Increasing voltage",
-            "Motor speed control",
-            "Data encryption",
-            "WiFi communication"
+            "Python",
+            "C++",
+            "Java",
+            "Ruby"
         ],
         "answer": 1
+    },
+    {
+        "id": 8,
+        "question": "Which of these is a popular single-board computer?",
+        "options": [
+            "Arduino Uno",
+            "Raspberry Pi",
+            "ESP8266",
+            "NodeMCU"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 9,
+        "question": "What does a servo motor primarily provide?",
+        "options": [
+            "Continuous fast rotation",
+            "Precise angular positioning",
+            "Electricity",
+            "Light"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 10,
+        "question": "Which part of a circuit limits the flow of current?",
+        "options": [
+            "Capacitor",
+            "Battery",
+            "Resistor",
+            "Diode"
+        ],
+        "answer": 2
+    },
+    {
+        "id": 11,
+        "question": "What does LDR stand for?",
+        "options": [
+            "Low Data Rate",
+            "Light Dependent Resistor",
+            "Laser Diode Reader",
+            "Long Distance Relay"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 12,
+        "question": "Which module adds WiFi capability easily to Arduino?",
+        "options": [
+            "HC-05",
+            "NRF24L01",
+            "ESP8266",
+            "RFID RC522"
+        ],
+        "answer": 2
+    },
+    {
+        "id": 13,
+        "question": "What is the typical operating voltage of an Arduino Uno?",
+        "options": [
+            "3.3V",
+            "5V",
+            "12V",
+            "24V"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 14,
+        "question": "What type of signal can have only two states (HIGH/LOW)?",
+        "options": [
+            "Analog",
+            "Digital",
+            "PWM",
+            "Radio"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 15,
+        "question": "Which of these is an example of an IoT application?",
+        "options": [
+            "Smart Thermostat",
+            "Calculator",
+            "Notepad",
+            "Clock"
+        ],
+        "answer": 0
     }
 ]
