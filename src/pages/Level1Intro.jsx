@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import NeonButton from '../components/NeonButton';
+import RobotMascot from '../components/RobotMascot';
 
 export default function Level1Intro() {
     const navigate = useNavigate();
@@ -25,23 +26,7 @@ export default function Level1Intro() {
             exit={{ opacity: 0 }}
             className="w-full h-full flex flex-col items-center justify-center p-8 relative"
         >
-            {/* Hologram AI Figure effect using CSS & simple HTML elements */}
-            <motion.div
-                initial={{ scale: 0.8, opacity: 0, filter: 'blur(10px)' }}
-                animate={{ scale: 1, opacity: 0.8, filter: 'blur(0px)' }}
-                transition={{ duration: 2 }}
-                className="relative w-48 h-64 mb-12 flex items-center justify-center flex-col animate-pulse-glow"
-            >
-                <div className="w-16 h-16 bg-cyber-primary rounded-full blur-[20px] absolute top-4 opacity-50" />
-                <div className="w-24 h-40 bg-cyber-primary rounded-t-full rounded-b-xl blur-[25px] absolute bottom-0 opacity-40" />
-
-                {/* Particle/Grid Lines */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjMDBFNUZGIiBvcGFjaXR5PSIwLjUiLz4KPC9zdmc+')] opacity-30 mix-blend-overlay" />
-
-                <div className="w-12 h-12 bg-white rounded-full opacity-80 shadow-[0_0_30px_#00E5FF] mb-2" />
-                <div className="w-16 h-2 bg-cyber-secondary rounded mt-1 opacity-50" />
-                <div className="w-20 h-2 bg-cyber-primary rounded mt-1 opacity-50" />
-            </motion.div>
+            <RobotMascot />
 
             {/* Typing Text Container */}
             <div className="max-w-2xl text-center min-h-[120px]">
