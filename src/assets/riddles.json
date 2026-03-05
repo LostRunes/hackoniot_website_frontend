@@ -1,0 +1,170 @@
+[
+    {
+        "id": 1,
+        "question": "I measure distance without touching you.\nI send a sound, wait for its return,\nand tell the microcontroller how far you stand.\nWhat am I?",
+        "options": [
+            "Infrared Sensor",
+            "Ultrasonic Sensor",
+            "Temperature Sensor",
+            "LDR"
+        ],
+        "answer": 1,
+        "revealTitle": "Ultrasonic Sensor",
+        "revealDesc": "HC-SR04 uses high-frequency sound waves to measure distance.",
+        "image": "/src/assets/components/ultrasonic_hcsr04.png"
+    },
+    {
+        "id": 2,
+        "question": "I glow when electricity flows through me.\nSometimes red, sometimes blue, sometimes green.\nDevelopers love me for debugging.\nWhat am I?",
+        "options": [
+            "Resistor",
+            "LED",
+            "Capacitor",
+            "Diode"
+        ],
+        "answer": 1,
+        "revealTitle": "LED",
+        "revealDesc": "Light Emitting Diodes are the most common indicator components in IoT.",
+        "image": null
+    },
+    {
+        "id": 3,
+        "question": "I am the brain of many DIY projects.\nSmall, programmable, and loved by beginners.\nI control sensors, motors, and lights.\nWhat am I?",
+        "options": [
+            "Arduino",
+            "GPU",
+            "Hard Disk",
+            "Router"
+        ],
+        "answer": 0,
+        "revealTitle": "Arduino",
+        "revealDesc": "The go-to microcontroller for rapid prototyping and learning electronics.",
+        "image": "/src/assets/components/arduino_uno.png"
+    },
+    {
+        "id": 4,
+        "question": "I spin left, I spin right,\nbut only when told exactly how much.\nPerfect for robot arms and smart locks.\nWhat am I?",
+        "options": [
+            "DC Motor",
+            "Servo Motor",
+            "Stepper Motor",
+            "Relay"
+        ],
+        "answer": 1,
+        "revealTitle": "Servo Motor",
+        "revealDesc": "Servos provide precise angular control using PWM signals.",
+        "image": "/src/assets/components/servo_sg90.png"
+    },
+    {
+        "id": 5,
+        "question": "I sense light in the room.\nBright light lowers my resistance,\ndarkness increases it.\nWhat am I?",
+        "options": [
+            "LDR",
+            "Thermistor",
+            "Capacitor",
+            "Potentiometer"
+        ],
+        "answer": 0,
+        "revealTitle": "LDR",
+        "revealDesc": "Light Dependent Resistors change resistance based on ambient light intensity.",
+        "image": null
+    },
+    {
+        "id": 6,
+        "question": "I act like a tiny switch controlled by electricity.\nLow voltage controls high voltage safely.\nUsed to turn appliances ON or OFF remotely.\nWhat am I?",
+        "options": [
+            "Transistor",
+            "Relay",
+            "Diode",
+            "Fuse"
+        ],
+        "answer": 1,
+        "revealTitle": "Relay",
+        "revealDesc": "Relays allow small DC signals to control large AC loads safely.",
+        "image": null
+    },
+    {
+        "id": 7,
+        "question": "I store energy temporarily.\nI smooth power and reduce noise in circuits.\nSometimes I charge and discharge quickly.\nWhat am I?",
+        "options": [
+            "Capacitor",
+            "Resistor",
+            "Inductor",
+            "Transformer"
+        ],
+        "answer": 0,
+        "revealTitle": "Capacitor",
+        "revealDesc": "Capacitors act like tiny rechargeable batteries for circuit stability.",
+        "image": null
+    },
+    {
+        "id": 8,
+        "question": "I measure how hot or cold something is.\nSmart homes and weather stations depend on me.\nWhat am I?",
+        "options": [
+            "Pressure Sensor",
+            "Temperature Sensor",
+            "Gas Sensor",
+            "Humidity Sensor"
+        ],
+        "answer": 1,
+        "revealTitle": "Temperature Sensor",
+        "revealDesc": "Digital or analog sensors like DHT11 or LM35 monitor environmental heat.",
+        "image": null
+    },
+    {
+        "id": 9,
+        "question": "I limit the flow of current in a circuit.\nWithout me, LEDs might burn out.\nWhat am I?",
+        "options": [
+            "Capacitor",
+            "Resistor",
+            "Diode",
+            "Transistor"
+        ],
+        "answer": 1,
+        "revealTitle": "Resistor",
+        "revealDesc": "Fundamental components that provide electrical resistance in a path.",
+        "image": null
+    },
+    {
+        "id": 10,
+        "question": "I connect devices to the internet wirelessly.\nSmart homes, IoT gadgets, and routers rely on me.\nWhat am I?",
+        "options": [
+            "Bluetooth Module",
+            "WiFi Module",
+            "GSM Module",
+            "GPS Module"
+        ],
+        "answer": 1,
+        "revealTitle": "WiFi Module",
+        "revealDesc": "Modules like ESP8266 grant microcontrollers wireless internet access.",
+        "image": null
+    },
+    {
+        "id": 11,
+        "question": "I detect movement without touching anything.\nSecurity systems and automatic lights love me.\nWhat am I?",
+        "options": [
+            "Ultrasonic Sensor",
+            "PIR Sensor",
+            "Temperature Sensor",
+            "Gas Sensor"
+        ],
+        "answer": 1,
+        "revealTitle": "PIR Sensor",
+        "revealDesc": "Passive Infrared sensors detect heat signatures in motion.",
+        "image": "/src/assets/components/ir_sensor.png"
+    },
+    {
+        "id": 12,
+        "question": "I convert physical rotation into electrical signals.\nRobots use me to know position and speed.\nWhat am I?",
+        "options": [
+            "Encoder",
+            "Relay",
+            "Transformer",
+            "Potentiometer"
+        ],
+        "answer": 0,
+        "revealTitle": "Encoder",
+        "revealDesc": "Encoders track shaft rotation to determine motor position and velocity.",
+        "image": null
+    }
+]
