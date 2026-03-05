@@ -1,0 +1,62 @@
+[
+    {
+        "question": "What is an IP address used for?",
+        "options": [
+            "Identifying a device on a network",
+            "Increasing speed",
+            "Power regulation",
+            "Storing passwords"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "What is edge computing?",
+        "options": [
+            "Processing data near the source device",
+            "Processing data only in cloud",
+            "Increasing internet speed",
+            "Data encryption method"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "If an ESP32 runs on 3.3V logic, directly connecting a 5V sensor output to it may:",
+        "options": [
+            "Work perfectly",
+            "Increase speed",
+            "Damage the ESP32",
+            "Improve accuracy"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "What is the purpose of a pull-up resistor?",
+        "options": [
+            "Increase voltage",
+            "Avoid floating input",
+            "Store data",
+            "Reduce frequency"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "Which ADC converts:",
+        "options": [
+            "Digital to Analog",
+            "Analog to Digital",
+            "AC to DC",
+            "DC to AC"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "Which device is required to drive high-current motors?",
+        "options": [
+            "LED",
+            "Motor Driver (e.g., TB6612, BTS7960)",
+            "Push button",
+            "Capacitor"
+        ],
+        "answer": 1
+    }
+]

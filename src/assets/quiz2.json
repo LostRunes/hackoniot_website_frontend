@@ -1,0 +1,62 @@
+[
+    {
+        "question": "Which communication protocol uses only 2 wires?",
+        "options": [
+            "SPI",
+            "UART",
+            "I2C",
+            "CAN"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "Which protocol is full duplex?",
+        "options": [
+            "UART",
+            "I2C",
+            "SPI",
+            "One-wire"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "What is the function of an interrupt?",
+        "options": [
+            "Stop the program permanently",
+            "Restart the microcontroller",
+            "Temporarily pause main code to execute a specific task",
+            "Increase clock speed"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "What is the typical logic HIGH voltage for 5V microcontrollers?",
+        "options": [
+            "1.2V",
+            "3.3V",
+            "5V",
+            "12V"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "What does IoT stand for?",
+        "options": [
+            "Internet of Technology",
+            "Integration of Things",
+            "Internet of Things",
+            "Internal Object Transfer"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "Which of the following is commonly used for IoT connectivity?",
+        "options": [
+            "HDMI",
+            "Ethernet",
+            "WiFi",
+            "VGA"
+        ],
+        "answer": 2
+    }
+]

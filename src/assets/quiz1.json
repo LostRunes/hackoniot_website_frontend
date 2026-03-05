@@ -1,0 +1,62 @@
+[
+    {
+        "question": "What is an embedded system?",
+        "options": [
+            "A general-purpose computer",
+            "A system designed for a specific function",
+            "A cloud server",
+            "A web application"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "Which of the following is a microcontroller?",
+        "options": [
+            "Intel i7",
+            "Raspberry Pi 4",
+            "ATmega328P",
+            "NVIDIA RTX"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "What are the main components inside a microcontroller?",
+        "options": [
+            "CPU, RAM, ROM, I/O",
+            "GPU, SSD, Monitor",
+            "Router, Switch, Modem",
+            "Keyboard, Mouse"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "Which memory is volatile?",
+        "options": [
+            "ROM",
+            "EEPROM",
+            "RAM",
+            "Flash"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "What does GPIO stand for?",
+        "options": [
+            "General Purpose Input Output",
+            "Global Peripheral IO",
+            "General Peripheral Internal Output",
+            "Graphical Pin Input Output"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "What is PWM mainly used for?",
+        "options": [
+            "Increasing voltage",
+            "Motor speed control",
+            "Data encryption",
+            "WiFi communication"
+        ],
+        "answer": 1
+    }
+]

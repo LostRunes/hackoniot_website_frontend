@@ -1,0 +1,62 @@
+[
+    {
+        "question": "Which protocol is lightweight and widely used in IoT?",
+        "options": [
+            "HTTP",
+            "FTP",
+            "MQTT",
+            "SMTP"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "What is the role of a sensor in IoT?",
+        "options": [
+            "Store data",
+            "Display data",
+            "Collect environmental data",
+            "Process data"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "What does a cloud platform do in IoT?",
+        "options": [
+            "Provides battery backup",
+            "Stores and processes data remotely",
+            "Controls GPIO directly",
+            "Replaces microcontrollers"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "Which device is commonly used in IoT projects?",
+        "options": [
+            "ESP32",
+            "GPU",
+            "Hard Disk",
+            "Printer"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "Which frequency band does WiFi typically operate in?",
+        "options": [
+            "50 Hz",
+            "2.4 GHz",
+            "60 Hz",
+            "5 Hz"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "LoRa is mainly used for:",
+        "options": [
+            "High-speed video streaming",
+            "Long-range low-power communication",
+            "Gaming",
+            "Bluetooth pairing"
+        ],
+        "answer": 1
+    }
+]

@@ -1,0 +1,62 @@
+[
+    {
+        "question": "What is baud rate in UART?",
+        "options": [
+            "Voltage level",
+            "Speed of data transmission",
+            "Memory size",
+            "Frequency of PWM"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "What happens if watchdog timer is not reset?",
+        "options": [
+            "System runs faster",
+            "Microcontroller resets",
+            "Cloud disconnects",
+            "GPIO burns"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "OTA in IoT stands for:",
+        "options": [
+            "Over The Air update",
+            "Output Transfer Algorithm",
+            "Online Transfer Access",
+            "Optical Transmission Application"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "Which layer of IoT architecture handles sensors and actuators?",
+        "options": [
+            "Application layer",
+            "Network layer",
+            "Perception layer",
+            "Cloud layer"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "Which communication is best for very short range (~10m)?",
+        "options": [
+            "LoRa",
+            "Bluetooth",
+            "Ethernet",
+            "Satellite"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "A capacitor near microcontroller power pins is mainly used for:",
+        "options": [
+            "Speed increase",
+            "Decoupling / noise filtering",
+            "Data storage",
+            "Amplification"
+        ],
+        "answer": 1
+    }
+]

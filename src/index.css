@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cyber-dark text-white font-inter overflow-x-hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron tracking-wider;
+  }
+}
+
+@layer components {
+  /* Common UI Elements */
+  .glass-panel {
+    @apply bg-cyber-dark/60 backdrop-blur-md border border-white/10 rounded-xl shadow-[0_0_15px_rgba(0,229,255,0.1)];
+  }
+  .neon-border {
+    @apply border border-cyber-primary shadow-[0_0_10px_rgba(0,229,255,0.5)];
+  }
+  .neon-text {
+    @apply text-cyber-primary drop-shadow-[0_0_8px_rgba(0,229,255,0.8)];
+  }
+  .neon-button {
+    @apply relative px-8 py-3 bg-cyber-dark text-cyber-primary font-orbitron font-bold uppercase tracking-widest border border-cyber-primary
+           hover:bg-cyber-primary/10 hover:shadow-[0_0_20px_rgba(0,229,255,0.6),inset_0_0_10px_rgba(0,229,255,0.4)]
+           transition-all duration-300 ease-in-out rounded-sm overflow-hidden 
+           active:scale-95;
+  }
+  .neon-button::before {
+    content: '';
+    @apply absolute top-0 left-[-100%] w-full h-[2px] bg-gradient-to-r from-transparent to-cyber-primary transition-all duration-500 z-10;
+  }
+  .neon-button:hover::before {
+    @apply left-[100%];
+  }
+}
+
+/* Custom scrollbar for cyber look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-cyber-dark;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-cyber-primary/50 hover:bg-cyber-primary rounded-full;
+}
+
+/* Silhouette generation util for the guess component */
+.silhouette {
+  filter: brightness(0) drop-shadow(0 0 5px rgba(0, 229, 255, 0.5));
+}
