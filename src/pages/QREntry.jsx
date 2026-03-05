@@ -24,7 +24,7 @@ export default function QREntry() {
                 Scan to enter the IoT challenge
             </p>
 
-            <div className="relative p-6 glass-panel border-[#00FFA3] shadow-[0_0_40px_rgba(0,255,163,0.3)] mb-12 flex items-center justify-center group">
+            <div className="relative p-6 arcade-panel border-[#00FFA3] shadow-[0_0_40px_rgba(0,255,163,0.3)] mb-12 flex items-center justify-center group">
                 {/* Animated Scanner line over QR */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-[#00FFA3] shadow-[0_0_15px_#00FFA3] z-10 animate-[scan_2s_ease-in-out_infinite]" />
 

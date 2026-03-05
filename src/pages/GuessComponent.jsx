@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
 import NeonButton from '../components/NeonButton';
+import { playArcadeSound } from '../utils/audio';
 
 // A simple plane that displays the texture and rotates when correct
 function RotatingComponent({ textureUrl, isRotating }) {
@@ -114,11 +115,10 @@ export default function GuessComponent() {
         setIsCorrect(correct);
 
         if (correct) {
-            // Correct audio or effect can go here
+            playArcadeSound('correct');
         } else {
             setShowSpark(true);
-            const audio = new Audio('/src/assets/audio/wrong.mp3');
-            audio.play().catch(e => console.warn('Audio play failed', e));
+            playArcadeSound('wrong');
             setTimeout(() => setShowSpark(false), 500);
         }
     };
@@ -191,7 +191,7 @@ export default function GuessComponent() {
                         onClick={() => handleGuess(opt.correct)}
                         disabled={answered}
                         className={`
-              glass-panel p-4 text-center font-orbitron text-lg transition-all duration-300
+              arcade-panel p-4 text-center font-orbitron text-lg transition-all duration-300
               ${answered && opt.correct ? 'border-cyber-accent text-cyber-accent shadow-[0_0_20px_#00FFA3]' : ''}
               ${answered && !opt.correct ? 'opacity-30' : 'hover:border-cyber-primary'}
             `}
@@ -207,7 +207,7 @@ export default function GuessComponent() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="mt-8 glass-panel p-6 max-w-2xl text-center border-cyber-primary"
+                        className="mt-8 arcade-panel p-6 max-w-2xl text-center border-cyber-primary"
                     >
                         <h3 className="text-cyber-accent font-orbitron mb-2 text-xl">{question.title}</h3>
                         <p className="text-white/80 font-inter text-sm mb-6">

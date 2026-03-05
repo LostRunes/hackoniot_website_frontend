@@ -35,7 +35,7 @@ export default function Level2() {
                 className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10 mb-12"
             >
                 {/* Rules Panel */}
-                <motion.div variants={itemVariants} className="glass-panel p-6 border-[#00E5FF] hover:shadow-[0_0_20px_#00E5FF] transition-shadow duration-500">
+                <motion.div variants={itemVariants} className="arcade-panel p-6 border-[#00E5FF] hover:shadow-[0_0_20px_#00E5FF] transition-shadow duration-500">
                     <h3 className="text-2xl text-[#00E5FF] font-orbitron mb-4 border-b border-[#00E5FF]/30 pb-2">HACKATHON RULES</h3>
                     <ul className="list-disc pl-5 font-inter text-white/80 space-y-2">
                         <li>Teams must consist of 2-4 members.</li>
@@ -46,7 +46,7 @@ export default function Level2() {
                 </motion.div>
 
                 {/* Timeline Panel */}
-                <motion.div variants={itemVariants} className="glass-panel p-6 border-[#00FFA3] hover:shadow-[0_0_20px_#00FFA3] transition-shadow duration-500">
+                <motion.div variants={itemVariants} className="arcade-panel p-6 border-[#00FFA3] hover:shadow-[0_0_20px_#00FFA3] transition-shadow duration-500">
                     <h3 className="text-2xl text-[#00FFA3] font-orbitron mb-4 border-b border-[#00FFA3]/30 pb-2">TIMELINE</h3>
                     <div className="space-y-4 font-inter text-white/80">
                         <div className="flex justify-between border-l-2 border-[#00FFA3] pl-4">
@@ -69,7 +69,7 @@ export default function Level2() {
                 </motion.div>
 
                 {/* Instructions Panel */}
-                <motion.div variants={itemVariants} className="glass-panel p-6 md:col-span-2 border-[#7A5FFF] hover:shadow-[0_0_20px_#7A5FFF] transition-shadow duration-500">
+                <motion.div variants={itemVariants} className="arcade-panel p-6 md:col-span-2 border-[#7A5FFF] hover:shadow-[0_0_20px_#7A5FFF] transition-shadow duration-500">
                     <h3 className="text-2xl text-[#7A5FFF] font-orbitron mb-4 border-b border-[#7A5FFF]/30 pb-2">INSTRUCTIONS</h3>
                     <p className="font-inter text-white/80 leading-relaxed">
                         Welcome to the main event. Your objective is to build an interconnected prototype that bridges the gap between digital and physical realms. You have full access to the hardware lab API. Ensure your endpoints are secure. The network is watching. Good luck, hackers.

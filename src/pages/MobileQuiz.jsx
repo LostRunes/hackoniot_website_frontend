@@ -59,7 +59,7 @@ export default function MobileQuiz() {
                 if (data.participantId) {
                     setParticipantInfo(prev => ({ ...prev, id: data.participantId }));
                     setHasStarted(true);
-                    setStartTime(Date.now());
+                    setStartTime(Date.now()); // Reset start time to when questions actually appear
                 }
             } catch (err) {
                 console.error("Join error:", err);
@@ -71,17 +71,19 @@ export default function MobileQuiz() {
         if (selectedOpt !== null) return;
         setSelectedOpt(idx);
 
+        let nextScore = score;
         if (idx === questionsData[currentIdx].answer) {
-            setScore(prev => prev + 1);
+            nextScore = score + 1;
+            setScore(nextScore);
         }
 
         // Auto proceed after 1s
         setTimeout(() => {
-            handleNext();
+            handleNext(nextScore);
         }, 1000);
     };
 
-    const handleNext = async () => {
+    const handleNext = async (currentScore = score) => {
         if (currentIdx < questionsData.length - 1) {
             setCurrentIdx(prev => prev + 1);
             setSelectedOpt(null);
@@ -89,7 +91,7 @@ export default function MobileQuiz() {
         } else {
             // Quiz finished
             const timeTaken = Math.floor((Date.now() - startTime) / 1000);
-            const accuracy = Math.round((score / questionsData.length) * 100);
+            const accuracy = Math.round((currentScore / questionsData.length) * 100);
 
             // Submit score
             try {
@@ -98,7 +100,7 @@ export default function MobileQuiz() {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         participantId: participantInfo.id,
-                        score,
+                        score: currentScore,
                         timeTaken
                     })
                 });
@@ -108,7 +110,7 @@ export default function MobileQuiz() {
 
             // Navigate
             navigate('/level1/complete', {
-                state: { score, total: questionsData.length, accuracy, timeTaken, name: participantInfo.name }
+                state: { score: currentScore, total: questionsData.length, accuracy, timeTaken, name: participantInfo.name }
             });
         }
     };
@@ -119,7 +121,7 @@ export default function MobileQuiz() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="glass-panel p-8 w-full max-w-sm"
+                    className="arcade-panel p-8 w-full max-w-sm"
                 >
                     <h2 className="text-2xl font-orbitron text-cyber-primary mb-6 text-center">INITIATE CONNECTION</h2>
                     <form onSubmit={handleStart} className="flex flex-col gap-4">
@@ -180,7 +182,7 @@ export default function MobileQuiz() {
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         className="w-full flex-1 flex flex-col"
                     >
-                        <div className="glass-panel p-6 mb-8 text-center min-h-[150px] flex items-center justify-center border-cyber-secondary/50 shadow-[0_0_20px_rgba(122,95,255,0.2)]">
+                        <div className="arcade-panel p-6 mb-8 text-center min-h-[150px] flex items-center justify-center border-cyber-secondary/50 shadow-[0_0_20px_rgba(122,95,255,0.2)]">
                             <h3 className="text-xl md:text-2xl font-inter text-white drop-shadow-[0_0_2px_#ffffff]">{q.question}</h3>
                         </div>
 

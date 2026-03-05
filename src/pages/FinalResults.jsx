@@ -60,7 +60,7 @@ export default function FinalResults() {
                             {/* Team Info Card */}
                             <motion.div
                                 whileHover={{ y: -10 }}
-                                className="flex flex-col items-center mb-4 p-6 glass-panel rounded-xl border border-white/20 relative"
+                                className="flex flex-col items-center mb-4 p-6 arcade-panel rounded-xl border border-white/20 relative"
                                 style={{
                                     boxShadow: `0 0 30px ${p.color}40`,
                                     backgroundColor: 'rgba(10, 15, 28, 0.8)'
@@ -105,7 +105,7 @@ export default function FinalResults() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
-                    className="w-full max-w-4xl glass-panel overflow-hidden mb-12"
+                    className="w-full max-w-4xl arcade-panel overflow-hidden mb-12"
                 >
                     <div className="grid grid-cols-3 p-4 border-b border-white/20 text-white/70 font-orbitron text-lg bg-black/40">
                         <div className="text-center font-bold">POSITION</div>

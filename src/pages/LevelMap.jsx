@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
+import PixelBackground from '../components/PixelBackground';
+import { Cpu, Zap, RadioReceiver, Trophy } from 'lucide-react';
 
 export default function LevelMap() {
     const navigate = useNavigate();
@@ -15,14 +17,13 @@ export default function LevelMap() {
         const xOffset = window.innerWidth / 2 - centerX;
         const yOffset = window.innerHeight / 2 - centerY;
 
-        // GSAP Retro Zoom Effect into Level
         gsap.to(containerRef.current, {
             x: xOffset * 3,
             y: yOffset * 3,
-            scale: 6,
+            scale: 4,
             opacity: 0,
-            duration: 1,
-            ease: 'power3.in',
+            duration: 1.5,
+            ease: 'power3.inOut',
             onComplete: () => {
                 navigate(path);
             }
@@ -30,101 +31,114 @@ export default function LevelMap() {
     };
 
     return (
-        <div className="w-full h-full overflow-hidden flex flex-col items-center justify-center relative">
+        <div className="w-full h-full overflow-hidden flex flex-col items-center justify-center relative bg-arcade-bg">
+            <PixelBackground />
+
             <div
                 ref={containerRef}
-                className="relative w-full max-w-2xl h-[800px] flex flex-col items-center justify-between py-12 px-4"
+                className="relative z-10 w-full max-w-4xl h-[800px] flex flex-col items-center justify-between py-10 px-8"
             >
-                {/* SVG Connecting Line */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none">
-                    <path
-                        d="M 50% 10% L 30% 35% L 70% 65% L 50% 90%"
-                        fill="none"
-                        stroke="#FF2E88"
-                        strokeWidth="8"
-                        strokeLinejoin="miter"
-                        className="drop-shadow-[0_0_15px_rgba(255,46,136,0.8)]"
-                    />
-                    <path
-                        d="M 50% 10% L 30% 35% L 70% 65% L 50% 90%"
-                        fill="none"
-                        stroke="#FFF"
-                        strokeWidth="2"
-                        strokeLinejoin="miter"
-                        strokeDasharray="10 10"
-                        className="animate-[pulse_1s_linear_infinite]"
-                    />
+                {/* SVG Connecting Lines */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ filter: 'drop-shadow(0 0 8px #2CC6FF)' }}>
+                    {/* Path from Start (bottom) to Level 1 (right) */}
+                    <path d="M 450 700 L 450 600 L 650 600 L 650 550" stroke="#2CC6FF" strokeWidth="4" fill="none" strokeDasharray="10 10" className="animate-[dash_20s_linear_infinite]" />
+                    {/* Path from Level 1 to Level 2 (left) */}
+                    <path d="M 650 450 L 650 400 L 250 400 L 250 350" stroke="#FF2E88" strokeWidth="4" fill="none" strokeDasharray="10 10" className="animate-[dash_20s_linear_infinite]" />
+                    {/* Path from Level 2 to Final (center) */}
+                    <path d="M 250 250 L 250 150 L 450 150 L 450 100" stroke="#00F0FF" strokeWidth="4" fill="none" strokeDasharray="10 10" className="animate-[dash_20s_linear_infinite]" />
                 </svg>
 
-                {/* Node 4: Final */}
-                <div className="relative z-10 w-full flex justify-center mb-8">
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="flex flex-col items-center cursor-pointer group"
+                {/* FINAL Node (Top Center) */}
+                <div className="w-full flex justify-center z-10 -mt-10">
+                    <ArcadeNode
+                        title="FINAL"
+                        subtitle="Boss Stage"
+                        icon={<Trophy size={32} />}
+                        color="arcade-cyan"
+                        hex="#00F0FF"
                         onClick={(e) => handleNodeClick(e, '/final-results')}
-                    >
-                        <h3 className="font-press text-arcade-yellow text-sm md:text-base mb-4 drop-shadow-[4px_4px_0_#2E1F5E]">FINAL</h3>
-                        <div className="w-16 h-16 md:w-20 md:h-20 bg-arcade-dark border-[6px] border-arcade-yellow rounded-md shadow-[0_0_30px_#FFD84D,inset_0_0_15px_#FFD84D] flex items-center justify-center group-hover:bg-arcade-yellow transition-colors">
-                            <span className="font-press text-white group-hover:text-arcade-dark">BOSS</span>
-                        </div>
-                    </motion.div>
+                    />
                 </div>
 
-                {/* Node 3: Quiz */}
-                <div className="relative z-10 w-full flex justify-start pl-[15%] md:pl-[20%]">
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="flex flex-col items-center cursor-pointer group"
-                        onClick={(e) => handleNodeClick(e, '/mentee-quiz')}
-                    >
-                        <h3 className="font-press text-arcade-cyan text-sm md:text-base mb-4 drop-shadow-[4px_4px_0_#2E1F5E]">QUIZ</h3>
-                        <div className="w-16 h-16 md:w-20 md:h-20 bg-arcade-dark border-[6px] border-arcade-cyan rounded-md shadow-[0_0_30px_#00F0FF,inset_0_0_15px_#00F0FF] flex items-center justify-center group-hover:bg-arcade-cyan transition-colors">
-                            <span className="font-press text-white group-hover:text-arcade-dark">?</span>
-                        </div>
-                    </motion.div>
-                </div>
 
-                {/* Node 2: Level 2 */}
-                <div className="relative z-10 w-full flex justify-end pr-[15%] md:pr-[20%]">
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="flex flex-col items-center cursor-pointer group"
+
+                {/* LEVEL 2 Node (Left) */}
+                <div className="w-full flex justify-start pl-10 z-10">
+                    <ArcadeNode
+                        title="LEVEL 2"
+                        subtitle="Hackathon"
+                        icon={<Zap size={32} />}
+                        color="arcade-neon"
+                        hex="#FF2E88"
                         onClick={(e) => handleNodeClick(e, '/level2')}
-                    >
-                        <h3 className="font-press text-[#a251ff] text-sm md:text-base mb-4 drop-shadow-[4px_4px_0_#2E1F5E]">LEVEL 2</h3>
-                        <div className="w-16 h-16 md:w-20 md:h-20 bg-arcade-dark border-[6px] border-[#a251ff] rounded-md shadow-[0_0_30px_#a251ff,inset_0_0_15px_#a251ff] flex items-center justify-center group-hover:bg-[#a251ff] transition-colors">
-                            <span className="font-press text-white group-hover:text-arcade-dark">LV2</span>
-                        </div>
-                    </motion.div>
+                        delay={0.4}
+                    />
                 </div>
 
-                {/* Node 1: Level 1 */}
-                <div className="relative z-10 w-full flex justify-center mt-8">
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="flex flex-col items-center cursor-pointer group"
+                {/* LEVEL 1 Node (Right) */}
+                <div className="w-full flex justify-end pr-10 z-10">
+                    <ArcadeNode
+                        title="LEVEL 1"
+                        subtitle="IoT Awakening"
+                        icon={<Cpu size={32} />}
+                        color="arcade-blue"
+                        hex="#2CC6FF"
                         onClick={(e) => handleNodeClick(e, '/intro')}
+                        delay={0.2}
+                    />
+                </div>
+
+                {/* START Point (Bottom Center) */}
+                <div className="w-full flex justify-center z-10">
+                    <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="bg-arcade-bg border-4 border-arcade-blue text-arcade-blue font-pixel p-4 rounded-full shadow-[0_0_20px_#2CC6FF]"
                     >
-                        <h3 className="font-press text-arcade-pink text-sm md:text-base mb-4 animate-pulse drop-shadow-[4px_4px_0_#2E1F5E]">LEVEL 1</h3>
-                        <div className="w-16 h-16 md:w-20 md:h-20 bg-arcade-dark border-[6px] border-arcade-pink rounded-md shadow-[0_0_30px_#FF2E88,inset_0_0_15px_#FF2E88] flex items-center justify-center group-hover:bg-arcade-pink transition-colors">
-                            <span className="font-press text-white group-hover:text-arcade-dark">LV1</span>
-                        </div>
+                        START
                     </motion.div>
                 </div>
 
-                {/* Start Marker */}
-                <div className="absolute bottom-[2%] text-center text-white/50 font-press text-[10px] tracking-widest pointer-events-none">
-                    PLAYER SPAWN
-                </div>
             </div>
 
-            {/* Back to Home Button */}
-            <motion.button
-                onClick={() => navigate('/')}
-                className="absolute top-6 left-6 arcade-button !px-4 !py-3 !text-[10px]"
-            >
-                &lt; BACK
-            </motion.button>
+            <style>{`
+                @keyframes dash {
+                    to { stroke-dashoffset: 1000; }
+                }
+            `}</style>
         </div>
+    );
+}
+
+function ArcadeNode({ title, subtitle, icon, color, hex, onClick, delay = 0 }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay, type: "spring", stiffness: 100 }}
+            className="flex flex-col items-center cursor-pointer group"
+            onClick={onClick}
+        >
+            <motion.div
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.9 }}
+                className={`
+                    w-24 h-24 bg-[#1a103c] border-[6px] rounded-2xl flex items-center justify-center relative
+                    transition-colors duration-300
+                `}
+                style={{
+                    borderColor: hex,
+                    boxShadow: `0 8px 0 ${hex}40, 0 0 20px ${hex}80, inset 0 0 15px ${hex}60`
+                }}
+            >
+                <div style={{ color: hex }} className="drop-shadow-[0_0_5px_currentColor]">
+                    {icon}
+                </div>
+            </motion.div>
+            <div className="mt-6 text-center bg-black/50 p-2 rounded border-2 border-white/20">
+                <h3 className="font-pixel text-sm text-white drop-shadow-md tracking-wider mb-2" style={{ color: hex }}>{title}</h3>
+                <p className="font-pixel text-[8px] text-white/80">{subtitle}</p>
+            </div>
+        </motion.div >
     );
 }

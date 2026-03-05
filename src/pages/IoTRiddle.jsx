@@ -30,7 +30,7 @@ export default function IoTRiddle() {
             {/* Hacker Terminal */}
             <motion.div
                 layout
-                className="glass-panel w-full max-w-3xl p-8 border-[#00FFA3] shadow-[0_0_20px_rgba(0,255,163,0.2)] font-mono text-[#00FFA3] text-xl leading-loose mb-8 min-h-[200px] flex flex-col"
+                className="arcade-panel w-full max-w-3xl p-8 border-[#00FFA3] shadow-[0_0_20px_rgba(0,255,163,0.2)] font-mono text-[#00FFA3] text-xl leading-loose mb-8 min-h-[200px] flex flex-col"
             >
                 <div className="flex-1 whitespace-pre-line drop-shadow-[0_0_5px_#00FFA3]">
                     {text}

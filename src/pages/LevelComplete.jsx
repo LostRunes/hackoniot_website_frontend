@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import NeonButton from '../components/NeonButton';
+import { playArcadeSound } from '../utils/audio';
 
 export default function LevelComplete() {
     const location = useLocation();
@@ -37,8 +38,7 @@ export default function LevelComplete() {
         frame();
 
         // Play complete audio
-        const audio = new Audio('/src/assets/audio/level_complete.mp3');
-        audio.play().catch(e => console.warn('Audio play failed', e));
+        playArcadeSound('levelup');
     }, []);
 
     return (
@@ -51,7 +51,7 @@ export default function LevelComplete() {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring" }}
-                className="glass-panel p-8 md:p-12 max-w-lg w-full text-center relative z-10 border-[#00FFA3] shadow-[0_0_50px_rgba(0,255,163,0.3)]"
+                className="arcade-panel p-8 md:p-12 max-w-lg w-full text-center relative z-10 border-[#00FFA3] shadow-[0_0_50px_rgba(0,255,163,0.3)]"
             >
                 <h2 className="text-4xl md:text-5xl font-orbitron text-[#00FFA3] mb-4 drop-shadow-[0_0_15px_#00FFA3]">
                     LEVEL 1 COMPLETED

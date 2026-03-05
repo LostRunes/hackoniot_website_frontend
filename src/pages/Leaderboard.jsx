@@ -86,33 +86,35 @@ export default function Leaderboard() {
             )}
 
             {/* Table grid */}
-            <div className="w-full max-w-4xl glass-panel overflow-hidden mb-8">
-                <div className="grid grid-cols-4 p-4 border-b border-white/20 text-white/70 font-orbitron text-sm">
+            <div className="w-full max-w-4xl arcade-panel mb-8 flex flex-col h-[500px]">
+                <div className="grid grid-cols-4 p-4 border-b border-white/20 text-white/70 font-orbitron text-sm sticky top-0 bg-arcade-bg z-10">
                     <div className="text-center">RANK</div>
                     <div>NAME</div>
                     <div className="text-center">SCORE</div>
                     <div className="text-center">TIME</div>
                 </div>
 
-                <div className="relative flex flex-col">
-                    <AnimatePresence>
-                        {leaders.map((leader, index) => (
-                            <motion.div
-                                key={leader._id || String(index)}
-                                layout
-                                initial={{ opacity: 0, x: -50 }}
-                                animate={{ opacity: index < 3 ? 0.6 : 1, x: 0 }} // Brighten dim top 3
-                                exit={{ opacity: 0, scale: 0.8 }}
-                                transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                                className={`grid grid-cols-4 p-4 items-center border-b border-white/20 font-inter transition-colors hover:bg-white/10 ${index < 3 ? 'text-white/80' : 'text-white'}`}
-                            >
-                                <div className="text-center font-orbitron text-cyber-secondary font-bold text-lg">{index + 1}</div>
-                                <div className="font-bold tracking-wide text-lg drop-shadow-md">{leader.name}</div>
-                                <div className="text-center text-cyber-primary font-bold text-lg drop-shadow-md">{leader.score}</div>
-                                <div className="text-center text-[#00FFA3] font-bold text-lg drop-shadow-md">{leader.time}s</div>
-                            </motion.div>
-                        ))}
-                    </AnimatePresence>
+                <div className="flex-1 overflow-y-auto">
+                    <div className="relative flex flex-col">
+                        <AnimatePresence>
+                            {leaders.map((leader, index) => (
+                                <motion.div
+                                    key={leader._id || String(index)}
+                                    layout
+                                    initial={{ opacity: 0, x: -50 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                                    className={`grid grid-cols-4 p-4 items-center border-b border-white/20 font-inter transition-colors hover:bg-white/10 ${index < 3 ? 'text-cyber-primary' : 'text-white'}`}
+                                >
+                                    <div className="text-center font-orbitron text-cyber-secondary font-bold text-lg">{index + 1}</div>
+                                    <div className="font-bold tracking-wide text-lg drop-shadow-md truncate">{leader.name}</div>
+                                    <div className="text-center text-cyber-primary font-bold text-lg drop-shadow-md">{leader.score}</div>
+                                    <div className="text-center text-[#00FFA3] font-bold text-lg drop-shadow-md">{leader.timeTaken || leader.time || 0}s</div>
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
+                    </div>
                 </div>
             </div>
 
