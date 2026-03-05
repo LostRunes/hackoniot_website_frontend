@@ -60,9 +60,9 @@ export default function Leaderboard() {
                         >
                             {/* Player Info */}
                             <div className="flex flex-col items-center mb-2">
-                                <span className="font-orbitron font-bold text-lg" style={{ color: p.color, textShadow: `0 0 10px ${p.color}` }}>                                    {p.name}
+                                <span className="font-orbitron font-bold text-xl drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" style={{ color: p.color, textShadow: `0 0 10px ${p.color}` }}>                                    {p.name}
                                 </span>
-                                <span className="font-inter text-sm text-white/70">
+                                <span className="font-inter font-bold text-white drop-shadow-md">
                                     {p.score} pts ({p.time}s)
                                 </span>
                             </div>
@@ -101,15 +101,15 @@ export default function Leaderboard() {
                                 key={leader._id || String(index)}
                                 layout
                                 initial={{ opacity: 0, x: -50 }}
-                                animate={{ opacity: index < 3 ? 0.2 : 1, x: 0 }} // dim top 3 since they are in podium
+                                animate={{ opacity: index < 3 ? 0.6 : 1, x: 0 }} // Brighten dim top 3
                                 exit={{ opacity: 0, scale: 0.8 }}
                                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                                className={`grid grid-cols-4 p-4 items-center border-b border-white/5 font-inter transition-colors hover:bg-white/5 ${index < 3 ? 'text-white/50' : 'text-white'}`}
+                                className={`grid grid-cols-4 p-4 items-center border-b border-white/20 font-inter transition-colors hover:bg-white/10 ${index < 3 ? 'text-white/80' : 'text-white'}`}
                             >
-                                <div className="text-center font-orbitron text-cyber-secondary">{index + 1}</div>
-                                <div className="font-bold tracking-wide">{leader.name}</div>
-                                <div className="text-center text-cyber-primary">{leader.score}</div>
-                                <div className="text-center text-[#00FFA3]">{leader.time}s</div>
+                                <div className="text-center font-orbitron text-cyber-secondary font-bold text-lg">{index + 1}</div>
+                                <div className="font-bold tracking-wide text-lg drop-shadow-md">{leader.name}</div>
+                                <div className="text-center text-cyber-primary font-bold text-lg drop-shadow-md">{leader.score}</div>
+                                <div className="text-center text-[#00FFA3] font-bold text-lg drop-shadow-md">{leader.time}s</div>
                             </motion.div>
                         ))}
                     </AnimatePresence>
