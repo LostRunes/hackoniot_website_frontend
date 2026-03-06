@@ -12,8 +12,29 @@ export default function MenteeVote() {
         isActive: false
     });
 
-    // Track if user has already voted for the CURRENT question index
     const [votedForIndex, setVotedForIndex] = useState(-1);
+    const [hasJoined, setHasJoined] = useState(false);
+    const [participantInfo, setParticipantInfo] = useState({ name: '', email: '' });
+
+    const handleStart = async (e) => {
+        e.preventDefault();
+        if (participantInfo.name && participantInfo.email) {
+            try {
+                const res = await fetch(`${import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}/api/join/mentee`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(participantInfo)
+                });
+                const data = await res.json();
+                if (data.participantId) {
+                    setParticipantInfo(prev => ({ ...prev, id: data.participantId }));
+                    setHasJoined(true);
+                }
+            } catch (err) {
+                console.error("Join error:", err);
+            }
+        }
+    };
 
     useEffect(() => {
         // Initial state fetch via HTTP (Fallback if socket sync is missed)
@@ -63,10 +84,45 @@ export default function MenteeVote() {
     const handleVote = (option) => {
         if (votedForIndex === state.activeQuestionIndex || !state.isActive || state.isRevealed) return;
 
-        socket.emit('voteSubmitted', option);
+        socket.emit('voteSubmitted', { option, participantId: participantInfo.id });
         setVotedForIndex(state.activeQuestionIndex);
         playArcadeSound('coin');
     };
+
+    if (!hasJoined) {
+        return (
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-[#0D0221] min-h-screen">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="arcade-panel p-8 w-full max-w-sm border-[#FF2E88]"
+                >
+                    <h2 className="text-2xl font-orbitron text-cyber-primary mb-6 text-center">JOIN MENTEE QUIZ</h2>
+                    <form onSubmit={handleStart} className="flex flex-col gap-4">
+                        <input
+                            type="text"
+                            required
+                            placeholder="Participant Name"
+                            className="bg-black/50 border border-cyber-primary/50 text-white p-3 rounded font-inter focus:outline-none focus:border-cyber-primary focus:shadow-[0_0_10px_#00E5FF]"
+                            value={participantInfo.name}
+                            onChange={e => setParticipantInfo({ ...participantInfo, name: e.target.value })}
+                        />
+                        <input
+                            type="email"
+                            required
+                            placeholder="College Email"
+                            className="bg-black/50 border border-cyber-primary/50 text-white p-3 rounded font-inter focus:outline-none focus:border-[#7A5FFF] focus:shadow-[0_0_10px_#7A5FFF]"
+                            value={participantInfo.email}
+                            onChange={e => setParticipantInfo({ ...participantInfo, email: e.target.value })}
+                        />
+                        <button type="submit" className="w-full py-4 mt-4 bg-cyber-primary text-black font-orbitron font-bold text-xl rounded-sm hover:scale-105 transition-transform shadow-[0_0_15px_#00E5FF]">
+                            ENTER QUIZ
+                        </button>
+                    </form>
+                </motion.div>
+            </div>
+        );
+    }
 
     if (!state.isActive || state.standby) {
         return (
@@ -80,6 +136,17 @@ export default function MenteeVote() {
     }
 
     const q = menteeQuestions[state.activeQuestionIndex];
+    if (!q) {
+        return (
+            <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-[#0D0221] min-h-screen">
+                <div className="arcade-panel p-8 text-center border-[#00FFA3]">
+                    <h1 className="text-2xl font-orbitron text-cyber-primary mb-4">SESSION COMPLETE</h1>
+                    <p className="font-pixel text-[10px] text-white/40">PLEASE LOOK AT THE MAIN DISPLAY FOR RESULTS</p>
+                </div>
+            </div>
+        );
+    }
+
     const hasVoted = votedForIndex === state.activeQuestionIndex;
 
     return (

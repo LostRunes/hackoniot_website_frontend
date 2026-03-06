@@ -47,6 +47,7 @@ function SocketHandler({ children }) {
     socket.on('showFinalResults', () => handleGlobalNav('/final-results'));
     socket.on('startMenteeQuiz', () => handleGlobalNav('/mentee-display'));
     socket.on('openMenteeQuiz', () => handleGlobalNav('/mentee-display'));
+    socket.on('showLeaderboard_mentee', () => handleGlobalNav('/leaderboard/mentee'));
 
     return () => {
       socket.off('startLevel1');
@@ -66,6 +67,7 @@ function SocketHandler({ children }) {
       socket.off('showFinalResults');
       socket.off('startMenteeQuiz');
       socket.off('openMenteeQuiz');
+      socket.off('showLeaderboard_mentee');
     };
   }, [navigate]);
 

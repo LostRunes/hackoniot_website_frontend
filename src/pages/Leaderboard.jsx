@@ -10,9 +10,11 @@ export default function Leaderboard() {
     const { id } = useParams();
     const [leaders, setLeaders] = useState([]);
 
+    const quizIdentifier = id === 'mentee' ? 'mentee' : `quiz${id}`;
+
     useEffect(() => {
         // Initial fetch
-        fetch(`${import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}/api/leaderboard/quiz${id}`)
+        fetch(`${import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}/api/leaderboard/${quizIdentifier}`)
             .then(res => res.json())
             .then(data => setLeaders(data))
             .catch(err => console.error("Error fetching leaderboard:", err));
@@ -22,12 +24,12 @@ export default function Leaderboard() {
             setLeaders(updatedLeaderboard);
         };
 
-        socket.on(`leaderboardUpdate_quiz${id}`, handleUpdate);
+        socket.on(`leaderboardUpdate_${quizIdentifier}`, handleUpdate);
 
         return () => {
-            socket.off(`leaderboardUpdate_quiz${id}`, handleUpdate);
+            socket.off(`leaderboardUpdate_${quizIdentifier}`, handleUpdate);
         };
-    }, [id]);
+    }, [id, quizIdentifier]);
 
     // Top 3 for podium
     const top3 = leaders.slice(0, 3);
