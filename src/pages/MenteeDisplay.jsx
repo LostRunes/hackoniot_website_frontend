@@ -19,7 +19,7 @@ export default function MenteeDisplay() {
         // Initial state fetch via HTTP (Fallback if socket sync is missed)
         const fetchInitialState = async () => {
             try {
-                const res = await fetch(`https://hackoniotwebsitebackend-production.up.railway.app/api/mentee-state`);
+                const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/mentee-state`);
                 const syncedState = await res.json();
                 if (syncedState) setState(syncedState);
             } catch (err) {

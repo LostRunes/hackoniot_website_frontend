@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import questionsDataFallback from '../assets/questions.json';
 import { socket } from '../socket'; // needed if they listen to isolated leaderboards (optional for MobileQuiz itself if it doesn't show leaderboard, but good practice)
 
-const API_URL = "https://hackoniotwebsitebackend-production.up.railway.app";
+const API_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:5000`;
 
 export default function MobileQuiz() {
     const navigate = useNavigate();

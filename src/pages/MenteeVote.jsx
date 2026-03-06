@@ -4,7 +4,7 @@ import { socket } from '../socket';
 import menteeQuestions from '../assets/mentee_questions.json';
 import { playArcadeSound } from '../utils/audio';
 
-const API_URL = "https://hackoniotwebsitebackend-production.up.railway.app";
+const API_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:5000`;
 
 export default function MenteeVote() {
     const [state, setState] = useState({
