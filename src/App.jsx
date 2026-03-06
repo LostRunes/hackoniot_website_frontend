@@ -19,26 +19,34 @@ function SocketHandler({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    socket.on('startLevel1', () => navigate('/intro'));
-    socket.on('startGuessComponent', () => navigate('/level1/guess'));
-    socket.on('startRiddles', () => navigate('/level1/riddle'));
+    const handleGlobalNav = (path) => {
+      // Prevent redirecting users who are participating in or displaying the Mentee Quiz
+      if (!window.location.pathname.startsWith('/mentee')) {
+        navigate(path);
+      }
+    };
+
+    socket.on('startLevel1', () => handleGlobalNav('/intro'));
+    socket.on('startGuessComponent', () => handleGlobalNav('/level1/guess'));
+    socket.on('startRiddles', () => handleGlobalNav('/level1/riddle'));
 
     // Multi-Quiz hooks
-    socket.on('startQuiz1', () => navigate('/level1/qr/1'));
-    socket.on('startQuiz2', () => navigate('/level1/qr/2'));
-    socket.on('startQuiz3', () => navigate('/level1/qr/3'));
-    socket.on('startQuiz4', () => navigate('/level1/qr/4'));
-    socket.on('startQuiz5', () => navigate('/level1/qr/5'));
+    socket.on('startQuiz1', () => handleGlobalNav('/level1/qr/1'));
+    socket.on('startQuiz2', () => handleGlobalNav('/level1/qr/2'));
+    socket.on('startQuiz3', () => handleGlobalNav('/level1/qr/3'));
+    socket.on('startQuiz4', () => handleGlobalNav('/level1/qr/4'));
+    socket.on('startQuiz5', () => handleGlobalNav('/level1/qr/5'));
 
-    socket.on('showLeaderboard_quiz1', () => navigate('/leaderboard/1'));
-    socket.on('showLeaderboard_quiz2', () => navigate('/leaderboard/2'));
-    socket.on('showLeaderboard_quiz3', () => navigate('/leaderboard/3'));
-    socket.on('showLeaderboard_quiz4', () => navigate('/leaderboard/4'));
-    socket.on('showLeaderboard_quiz5', () => navigate('/leaderboard/5'));
+    socket.on('showLeaderboard_quiz1', () => handleGlobalNav('/leaderboard/1'));
+    socket.on('showLeaderboard_quiz2', () => handleGlobalNav('/leaderboard/2'));
+    socket.on('showLeaderboard_quiz3', () => handleGlobalNav('/leaderboard/3'));
+    socket.on('showLeaderboard_quiz4', () => handleGlobalNav('/leaderboard/4'));
+    socket.on('showLeaderboard_quiz5', () => handleGlobalNav('/leaderboard/5'));
 
-    socket.on('startLevel2', () => navigate('/level2'));
-    socket.on('showFinalResults', () => navigate('/final-results'));
-    socket.on('startMenteeQuiz', () => navigate('/mentee-display'));
+    socket.on('startLevel2', () => handleGlobalNav('/level2'));
+    socket.on('showFinalResults', () => handleGlobalNav('/final-results'));
+    socket.on('startMenteeQuiz', () => handleGlobalNav('/mentee-display'));
+    socket.on('openMenteeQuiz', () => handleGlobalNav('/mentee-display'));
 
     return () => {
       socket.off('startLevel1');
@@ -57,6 +65,7 @@ function SocketHandler({ children }) {
       socket.off('startLevel2');
       socket.off('showFinalResults');
       socket.off('startMenteeQuiz');
+      socket.off('openMenteeQuiz');
     };
   }, [navigate]);
 

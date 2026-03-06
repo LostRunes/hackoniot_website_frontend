@@ -38,6 +38,10 @@ export default function MenteeDisplay() {
             playArcadeSound('levelup');
         });
 
+        socket.on('openMenteeQuiz', () => {
+            playArcadeSound('click');
+        });
+
         socket.on('nextMenteeQuestion', (newState) => {
             setState(newState);
             playArcadeSound('click');
@@ -70,6 +74,7 @@ export default function MenteeDisplay() {
             socket.off('revealMenteeAnswer');
             socket.off('voteUpdate');
             socket.off('endMenteeQuiz');
+            socket.off('openMenteeQuiz');
         };
     }, []);
 
