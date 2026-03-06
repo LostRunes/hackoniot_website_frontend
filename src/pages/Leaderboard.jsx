@@ -14,7 +14,7 @@ export default function Leaderboard() {
 
     useEffect(() => {
         // Initial fetch
-        fetch(`${import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}/api/leaderboard/${quizIdentifier}`)
+        fetch(`https://hackoniotwebsitebackend-production.up.railway.app/api/leaderboard/${quizIdentifier}`)
             .then(res => res.json())
             .then(data => setLeaders(data))
             .catch(err => console.error("Error fetching leaderboard:", err));
