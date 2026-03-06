@@ -40,7 +40,7 @@ export default function Home() {
                         HACK
                     </h1>
                     <div className="flex items-center justify-center space-x-4">
-                        <span className="bg-arcade-yellow text-[#2E1F5E] px-4 py-2 font-pixel text-2xl border-4 border-[#2E1F5E] rounded-md shadow-[4px_4px_0_#2E1F5E]">ON</span>
+                        <span className="bg-arcade-yellow text-[#2E1F5E] px-4 py-2 font-pixel text-2xl border-4 border-[#2E1F5E] rounded-md shadow-[4px_4px_0_#2E1F5E]"></span>
                         <h1 className="text-5xl md:text-7xl font-pixel text-white" style={{ textShadow: '4px 4px 0px #2CC6FF, 0 0 20px rgba(44, 198, 255, 0.8)' }}>
                             THE IOT
                         </h1>
