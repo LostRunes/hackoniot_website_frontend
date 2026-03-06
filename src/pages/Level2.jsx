@@ -34,46 +34,48 @@ export default function Level2() {
                 animate="show"
                 className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10 mb-12"
             >
-                {/* Rules Panel */}
-                <motion.div variants={itemVariants} className="arcade-panel p-6 border-[#00E5FF] hover:shadow-[0_0_20px_#00E5FF] transition-shadow duration-500">
-                    <h3 className="text-2xl text-[#00E5FF] font-orbitron mb-4 border-b border-[#00E5FF]/30 pb-2">HACKATHON RULES</h3>
-                    <ul className="list-disc pl-5 font-inter text-white/80 space-y-2">
-                        <li>Teams must consist of 2-4 members.</li>
-                        <li>All code must be written during the event.</li>
-                        <li>Use of open-source libraries is permitted.</li>
-                        <li>Hardware prototypes must be functional.</li>
-                    </ul>
+                {/* ROUND 2 */}
+                <motion.div variants={itemVariants} className="arcade-panel p-6 border-[#FF3B3B] hover:shadow-[0_0_20px_#FF3B3B] transition-shadow duration-500">
+                    <h3 className="text-2xl text-[#FF3B3B] font-orbitron mb-4 border-b border-[#FF3B3B]/30 pb-2">
+                        ROUND 2: ⚙ SECTOR-BASED PROTOTYPE
+                    </h3>
+
+                    <p className="font-inter text-white/80 leading-relaxed">
+                        Participants will work on a specified application domain and develop a basic IoT-based prototype addressing a real-world problem with innovation and technical precision.
+                    </p>
                 </motion.div>
 
-                {/* Timeline Panel */}
-                <motion.div variants={itemVariants} className="arcade-panel p-6 border-[#00FFA3] hover:shadow-[0_0_20px_#00FFA3] transition-shadow duration-500">
-                    <h3 className="text-2xl text-[#00FFA3] font-orbitron mb-4 border-b border-[#00FFA3]/30 pb-2">TIMELINE</h3>
+                {/* ROUND 3 */}
+                <motion.div variants={itemVariants} className="arcade-panel p-6 border-[#FFD84D] hover:shadow-[0_0_20px_#FFD84D] transition-shadow duration-500">
+                    <h3 className="text-2xl text-[#FFD84D] font-orbitron mb-4 border-b border-[#FFD84D]/30 pb-2">
+                        ROUND 3: 🏆 FINAL MODEL PRESENTATION
+                    </h3>
+
+                    <p className="font-inter text-white/80 leading-relaxed">
+                        Selected participants will present their developed model before the judging panel, demonstrate system functionality, and highlight the real-world impact of their solution.
+                    </p>
+                </motion.div>
+
+                {/* TIMELINE */}
+                <motion.div variants={itemVariants} className="arcade-panel p-6 md:col-span-2 border-[#00FFA3] hover:shadow-[0_0_20px_#00FFA3] transition-shadow duration-500">
+                    <h3 className="text-2xl text-[#00FFA3] font-orbitron mb-4 border-b border-[#00FFA3]/30 pb-2">EVENT TIMELINE</h3>
+
                     <div className="space-y-4 font-inter text-white/80">
                         <div className="flex justify-between border-l-2 border-[#00FFA3] pl-4">
-                            <span>09:00 AM</span>
-                            <span className="font-bold text-white">Opening Ceremony</span>
+                            <span>03:00 PM</span>
+                            <span className="font-bold text-white">Round 2 Begins</span>
                         </div>
+
                         <div className="flex justify-between border-l-2 border-[#00FFA3] pl-4">
-                            <span>10:00 AM</span>
-                            <span className="font-bold text-white">Hacking Begins</span>
+                            <span>05:00 PM</span>
+                            <span className="font-bold text-white">Round 2 Ends</span>
                         </div>
-                        <div className="flex justify-between border-l-2 border-[#00FFA3] pl-4">
-                            <span>12:00 PM</span>
-                            <span className="font-bold text-white">Mentor Check-in 1</span>
-                        </div>
-                        <div className="flex justify-between border-l-2 border-[#00E5FF] pl-4 opacity-50">
-                            <span>08:00 AM (Next Day)</span>
-                            <span className="font-bold text-white">Submissions Due</span>
+
+                        <div className="flex justify-between border-l-2 border-[#7A5FFF] pl-4">
+                            <span>Next Day • 10:00 AM</span>
+                            <span className="font-bold text-white">Final Presentation Begins</span>
                         </div>
                     </div>
-                </motion.div>
-
-                {/* Instructions Panel */}
-                <motion.div variants={itemVariants} className="arcade-panel p-6 md:col-span-2 border-[#7A5FFF] hover:shadow-[0_0_20px_#7A5FFF] transition-shadow duration-500">
-                    <h3 className="text-2xl text-[#7A5FFF] font-orbitron mb-4 border-b border-[#7A5FFF]/30 pb-2">INSTRUCTIONS</h3>
-                    <p className="font-inter text-white/80 leading-relaxed">
-                        Welcome to the main event. Your objective is to build an interconnected prototype that bridges the gap between digital and physical realms. You have full access to the hardware lab API. Ensure your endpoints are secure. The network is watching. Good luck, hackers.
-                    </p>
                 </motion.div>
             </motion.div>
 
