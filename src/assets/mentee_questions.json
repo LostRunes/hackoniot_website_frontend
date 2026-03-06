@@ -1,0 +1,122 @@
+[
+    {
+        "question": "“Mogambo khush hua!” — Which movie is this iconic line from?",
+        "options": [
+            "Sholay",
+            "Mr. India",
+            "Don",
+            "Karan Arjun"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "“How’s the josh?”",
+        "options": [
+            "Uri: The Surgical Strike",
+            "War",
+            "Fighter",
+            "Lakshya"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "“Kitne aadmi the?”",
+        "options": [
+            "Sholay",
+            "Deewar",
+            "Don",
+            "Zanjeer"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "Which Bollywood movie gave us the song “All Izz Well”?",
+        "options": [
+            "Taare Zameen Par",
+            "3 Idiots",
+            "Student of the Year",
+            "PK"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "Finish the dialogue: “Don ko pakadna mushkil hi nahi…”",
+        "options": [
+            "impossible hai",
+            "dangerous hai",
+            "namumkin hai",
+            "smart hai"
+        ],
+        "answer": 2
+    },
+    {
+        "question": "Which actor played Kabir Singh?",
+        "options": [
+            "Ranveer Singh",
+            "Shahid Kapoor",
+            "Ranbir Kapoor",
+            "Kartik Aaryan"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "Who said: “Bade bade deshon mein aisi choti choti baatein hoti rehti hain”?",
+        "options": [
+            "Raj",
+            "Rahul",
+            "Aman",
+            "Bunny"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "Which Bollywood movie is based on the mathematician Anand Kumar?",
+        "options": [
+            "Super 30",
+            "Mission Mangal",
+            "Rocket Singh",
+            "Swades"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "“Pushpa… Pushpa Raj… main jhukega nahi.”",
+        "options": [
+            "KGF",
+            "Pushpa: The Rise",
+            "Salaar",
+            "Vikram"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "Which movie features the character “Circuit”?",
+        "options": [
+            "Lage Raho Munna Bhai",
+            "Munna Bhai M.B.B.S",
+            "PK",
+            "OMG"
+        ],
+        "answer": 1
+    },
+    {
+        "question": "Which movie features the character “Jordan”?",
+        "options": [
+            "Rockstar",
+            "Tamasha",
+            "YJHD",
+            "Ae Dil Hai Mushkil"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "Which movie features the dialogue “Picture abhi baaki hai mere dost”?",
+        "options": [
+            "Om Shanti Om",
+            "Chennai Express",
+            "Happy New Year",
+            "Main Hoon Na"
+        ],
+        "answer": 0
+    }
+]

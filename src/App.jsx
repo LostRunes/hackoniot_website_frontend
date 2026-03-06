@@ -11,7 +11,8 @@ import LevelComplete from './pages/LevelComplete';
 import Leaderboard from './pages/Leaderboard';
 import Level2 from './pages/Level2';
 import FinalResults from './pages/FinalResults';
-import MenteeQuiz from './pages/MenteeQuiz';
+import MenteeDisplay from './pages/MenteeDisplay';
+import MenteeVote from './pages/MenteeVote';
 import { socket } from './socket';
 
 function SocketHandler({ children }) {
@@ -37,7 +38,7 @@ function SocketHandler({ children }) {
 
     socket.on('startLevel2', () => navigate('/level2'));
     socket.on('showFinalResults', () => navigate('/final-results'));
-    socket.on('startMenteeQuiz', () => navigate('/mentee-quiz'));
+    socket.on('startMenteeQuiz', () => navigate('/mentee-display'));
 
     return () => {
       socket.off('startLevel1');
@@ -81,7 +82,8 @@ function App() {
               <Route path="/leaderboard/:id" element={<Leaderboard />} />
               <Route path="/level2" element={<Level2 />} />
               <Route path="/final-results" element={<FinalResults />} />
-              <Route path="/mentee-quiz" element={<MenteeQuiz />} />
+              <Route path="/mentee-display" element={<MenteeDisplay />} />
+              <Route path="/mentee-vote" element={<MenteeVote />} />
             </Routes>
           </SocketHandler>
         </div>
