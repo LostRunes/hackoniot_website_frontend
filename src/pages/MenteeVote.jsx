@@ -4,6 +4,8 @@ import { socket } from '../socket';
 import menteeQuestions from '../assets/mentee_questions.json';
 import { playArcadeSound } from '../utils/audio';
 
+const API_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:5000`;
+
 export default function MenteeVote() {
     const [state, setState] = useState({
         activeQuestionIndex: 0,
@@ -20,7 +22,7 @@ export default function MenteeVote() {
         e.preventDefault();
         if (participantInfo.name && participantInfo.email) {
             try {
-                const res = await fetch(`${import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}/api/join/mentee`, {
+                const res = await fetch(`${API_URL}/api/join/mentee`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(participantInfo)
@@ -40,7 +42,7 @@ export default function MenteeVote() {
         // Initial state fetch via HTTP (Fallback if socket sync is missed)
         const fetchInitialState = async () => {
             try {
-                const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/mentee-state`);
+                const res = await fetch(`${API_URL}/api/mentee-state`);
                 const syncedState = await res.json();
                 if (syncedState) setState(syncedState);
             } catch (err) {
