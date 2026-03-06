@@ -4,7 +4,7 @@ import { socket } from '../socket';
 import menteeQuestions from '../assets/mentee_questions.json';
 import { playArcadeSound } from '../utils/audio';
 
-const API_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:5000`;
+const API_URL = import.meta.env.VITE_API_URL || "https://hackoniotwebsitebackend-production.up.railway.app";
 
 export default function MenteeVote() {
     const [state, setState] = useState({
@@ -25,7 +25,10 @@ export default function MenteeVote() {
                 const res = await fetch(`${API_URL}/api/join/mentee`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(participantInfo)
+                    body: JSON.stringify({
+                        name: participantInfo.name.trim(),
+                        email: participantInfo.email.trim()
+                    })
                 });
                 const data = await res.json();
                 if (data.participantId) {
@@ -34,6 +37,7 @@ export default function MenteeVote() {
                 }
             } catch (err) {
                 console.error("Join error:", err);
+                alert("Connection failed. Please try again.");
             }
         }
     };

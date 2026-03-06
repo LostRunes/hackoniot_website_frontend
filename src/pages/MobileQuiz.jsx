@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import questionsDataFallback from '../assets/questions.json';
 import { socket } from '../socket'; // needed if they listen to isolated leaderboards (optional for MobileQuiz itself if it doesn't show leaderboard, but good practice)
 
-const API_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:5000`;
+const API_URL = import.meta.env.VITE_API_URL || "https://hackoniotwebsitebackend-production.up.railway.app";
 
 export default function MobileQuiz() {
     const navigate = useNavigate();
@@ -29,22 +29,24 @@ export default function MobileQuiz() {
                 if (data && data.length) setQuestionsData(data);
             })
             .catch(console.error);
-    }, []);
+    }, [internalQuizId]);
 
     useEffect(() => {
         if (!hasStarted) return;
 
-        if (timeLeft === 0) {
-            handleNext();
-            return;
-        }
-
         const timer = setInterval(() => {
-            setTimeLeft(prev => prev - 1);
+            setTimeLeft(prev => {
+                if (prev <= 1) {
+                    clearInterval(timer);
+                    handleNext();
+                    return 0;
+                }
+                return prev - 1;
+            });
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [timeLeft, hasStarted]);
+    }, [hasStarted]);
 
     const handleStart = async (e) => {
         e.preventDefault();
@@ -53,7 +55,10 @@ export default function MobileQuiz() {
                 const res = await fetch(`${API_URL}/api/join/${internalQuizId}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(participantInfo)
+                    body: JSON.stringify({
+                        name: participantInfo.name.trim(),
+                        email: participantInfo.email.trim()
+                    })
                 });
                 const data = await res.json();
                 if (data.participantId) {
@@ -63,6 +68,7 @@ export default function MobileQuiz() {
                 }
             } catch (err) {
                 console.error("Join error:", err);
+                alert("Connection failed. Please try again.");
             }
         }
     };

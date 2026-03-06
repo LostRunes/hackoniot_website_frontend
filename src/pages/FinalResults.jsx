@@ -9,7 +9,8 @@ export default function FinalResults() {
 
     useEffect(() => {
         // Initial fetch
-        fetch(`${import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}/api/final-results`)
+        const API_URL = import.meta.env.VITE_API_URL || "https://hackoniotwebsitebackend-production.up.railway.app";
+        fetch(`${API_URL}/api/final-results`)
             .then(res => res.json())
             .then(data => setResults(data))
             .catch(err => console.error("Error fetching final results:", err));
