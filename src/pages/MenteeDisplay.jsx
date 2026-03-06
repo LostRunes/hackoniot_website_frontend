@@ -88,7 +88,7 @@ export default function MenteeDisplay() {
         return Math.round((count / totalVotes) * 100);
     };
 
-    if (!state.isActive) {
+    if (!state.isActive || state.standby) {
         return (
             <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-[#0A0F1C] relative overflow-hidden">
                 {/* Background Decorations */}

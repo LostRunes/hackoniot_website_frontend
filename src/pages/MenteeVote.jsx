@@ -68,11 +68,11 @@ export default function MenteeVote() {
         playArcadeSound('coin');
     };
 
-    if (!state.isActive) {
+    if (!state.isActive || state.standby) {
         return (
             <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-[#0D0221] min-h-screen">
                 <div className="arcade-panel p-8 text-center border-[#FF2E88]">
-                    <h1 className="text-2xl font-orbitron text- cyber-primary mb-4 animate-pulse">WAITING FOR SYSTEM START...</h1>
+                    <h1 className="text-2xl font-orbitron text-cyber-primary mb-4 animate-pulse">WAITING FOR SYSTEM START...</h1>
                     <p className="font-pixel text-[10px] text-white/40">THE MENTEE QUIZ PROTOCOL IS CURRENTLY STANDBY</p>
                 </div>
             </div>
